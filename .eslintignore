@@ -1,0 +1,9 @@
+package.json
+tsconfig.json
+.next
+.yarn
+next-env.d.ts
+*.config.ts
+*.config.js
+.eslintrc.js
+.prettierrc.js

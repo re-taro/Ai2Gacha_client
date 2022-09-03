@@ -1,0 +1,50 @@
+{
+  "name": "devcamp-tmp",
+  "version": "0.1.0",
+  "scripts": {
+    "gen:theme-typings": "chakra-cli tokens ./src/styles/theme.ts",
+    "postinstall": "npm run gen:theme-typings",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "fmt": "prettier -w -u .",
+    "type": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.9",
+    "@chakra-ui/react": "^2.3.1",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.9.0",
+    "framer-motion": "^6.3.0",
+    "next": "12.2.5",
+    "next-pwa": "^5.6.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@chakra-ui/cli": "^2.1.7",
+    "@chakra-ui/system": "^2.2.9",
+    "@types/node": "18.7.14",
+    "@types/react": "18.0.18",
+    "@types/react-dom": "18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "eslint": "8.22.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-next": "12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.7.1",
+    "typescript": "4.8.2",
+    "webpack": "^5.74.0"
+  },
+  "packageManager": "yarn@3.2.3"
+}
