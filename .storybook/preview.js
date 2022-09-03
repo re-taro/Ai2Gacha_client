@@ -1,4 +1,5 @@
-const theme = require("../src/styles/theme");
+import { ChakraProvider } from "@chakra-ui/provider";
+import { theme } from "../src/styles/theme";
 
 const customViewports = {
   /** iPhone X */
@@ -30,6 +31,14 @@ const customViewports = {
   },
 };
 
+const withChakra = (StoryFn) => {
+  return (
+    <ChakraProvider resetCSS theme={theme}>
+      <StoryFn />
+    </ChakraProvider>
+  );
+};
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -38,11 +47,10 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  chakra: {
-    theme,
-  },
   viewport: {
     viewports: customViewports,
     defaultViewport: "base",
   },
 };
+
+export const decorators = [withChakra];
