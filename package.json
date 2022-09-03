@@ -12,7 +12,8 @@
     "fmt": "prettier -w -u .",
     "type": "tsc --noEmit",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.9",
@@ -46,6 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.9.0",
     "eslint": "8.22.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -62,5 +64,7 @@
     "typescript": "4.8.2",
     "webpack": "^5.74.0"
   },
-  "packageManager": "yarn@3.2.3"
+  "packageManager": "yarn@3.2.3",
+  "readme": "ERROR: No README data found!",
+  "_id": "devcamp-tmp@0.1.0"
 }
