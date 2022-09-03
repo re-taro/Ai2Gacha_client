@@ -23,7 +23,14 @@ const foundations: Pick<
   typeof typography = {
   borders: {},
   breakpoints: {},
-  colors: {},
+  colors: {
+    primary: "#fc79d7",
+    secondary: "#79fc9e",
+    black: "#192643",
+    white: "#fffafc",
+    gray: "#a3a8b4",
+    "light-gray": "#eaecef",
+  },
   radii: {},
   shadows: {},
   sizes: {},
