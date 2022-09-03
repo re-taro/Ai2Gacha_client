@@ -10,6 +10,7 @@ const config = {
     "plugin:import/typescript",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:storybook/recommended",
     "prettier",
   ],
   rules: {
@@ -26,7 +27,10 @@ const config = {
       {
         groups: ["builtin", "external", "internal", ["parent", "sibling"], "object", "type", "index"],
         pathGroupsExcludedImportTypes: ["builtin"],
-        alphabetize: { order: "asc", caseInsensitive: true },
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
       },
     ],
     "import/prefer-default-export": 0,
@@ -37,7 +41,12 @@ const config = {
         namedComponents: "arrow-function",
       },
     ],
-    "react/jsx-filename-extension": [1, { extensions: [".jsx", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        extensions: [".jsx", ".tsx"],
+      },
+    ],
     "react/jsx-props-no-spreading": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
@@ -48,5 +57,4 @@ const config = {
     project: "./tsconfig.json",
   },
 };
-
 module.exports = config;
