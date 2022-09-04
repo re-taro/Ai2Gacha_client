@@ -1,23 +1,29 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
-import { ThemeCard } from ".";
+import { MatchCard } from ".";
 
-type T = typeof ThemeCard;
+type T = typeof MatchCard;
 type Story = ComponentStoryObj<T>;
 
 export default {
   args: {
-    theme: "この財布の魅力",
+    name: "test user",
+    score: 50,
     itemId: "test",
-    itemKindId: "testA",
+    userId: "user",
     bids: 100,
   },
-  component: ThemeCard,
+  component: MatchCard,
 } as ComponentMeta<T>;
 
 export const Default: Story = {};
-export const Tag: Story = {
+export const Card: Story = {
   args: {
-    isTag: true,
+    isSelect: false,
+  },
+};
+export const HighScore: Story = {
+  args: {
+    score: 100,
   },
 };

@@ -1,5 +1,5 @@
 import { chakra } from "@chakra-ui/react";
-import Link from "next/link"
+import Link from "next/link";
 import { Button } from "../button";
 import type { ThemeCardProperties } from "./type/model";
 import type { FC } from "react";
