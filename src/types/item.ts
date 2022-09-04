@@ -15,4 +15,5 @@ export type Item = {
   apply_point: string;
   apply_number: number;
   point_vector: Array<number>;
+  score: number;
 };
