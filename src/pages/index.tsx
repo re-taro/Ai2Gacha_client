@@ -12,7 +12,7 @@ const Index: NextPage = () => {
             購入
           </Button>
         </Link>
-        <Link href="/search" passHref>
+        <Link href="/bid" passHref>
           <Button as="a" isNegative={false} border={false} disable={false}>
             検索
           </Button>

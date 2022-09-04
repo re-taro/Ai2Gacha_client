@@ -2,8 +2,9 @@ import { HTMLChakraProps } from "@chakra-ui/react";
 
 export type ThemeCardProperties = HTMLChakraProps<"div"> & {
   theme: string;
-  itemKindId: string;
-  itemId: string;
-  bids: number;
+  selectId?: string;
+  chooseId?: string;
+  boardId?: string;
+  bids?: number;
   isTag: boolean;
 };

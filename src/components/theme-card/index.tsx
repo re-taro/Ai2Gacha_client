@@ -4,7 +4,7 @@ import { Button } from "../button";
 import type { ThemeCardProperties } from "./type/model";
 import type { FC } from "react";
 
-const ThemeCard: FC<ThemeCardProperties> = ({ theme, itemKindId, itemId, bids, isTag = false, ...rest }) => (
+const ThemeCard: FC<ThemeCardProperties> = ({ theme, selectId, chooseId, boardId, bids, isTag = false, ...rest }) => (
   <chakra.div
     maxWidth="21.25rem"
     paddingX="0.75rem"
@@ -20,7 +20,7 @@ const ThemeCard: FC<ThemeCardProperties> = ({ theme, itemKindId, itemId, bids, i
       <chakra.div display="flex" alignItems="center" justifyContent="space-between">
         <chakra.p color="black" fontSize="1rem">{`入札数: ${bids}`}</chakra.p>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <Link href={`/search/${itemKindId}/${itemId}`} passHref>
+        <Link href={`/bid/${selectId}/${chooseId}/${boardId}`} passHref>
           <Button
             as="a"
             isNegative={false}

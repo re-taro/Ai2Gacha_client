@@ -33,3 +33,8 @@ export const Submit: Story = {
     type: "submit",
   },
 };
+export const Tile: Story = {
+  args: {
+    type: "tile",
+  },
+};

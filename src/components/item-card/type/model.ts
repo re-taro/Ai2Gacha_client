@@ -32,4 +32,12 @@ export type ItemCardProperties =
       itemId: string;
       chooseItemId?: never;
       bids?: never;
+    }
+  | {
+      type: "tile";
+      title: string;
+      imagePath: string;
+      itemId?: never;
+      chooseItemId?: never;
+      bids?: never;
     };
