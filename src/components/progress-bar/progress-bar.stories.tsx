@@ -7,7 +7,7 @@ type Story = ComponentStoryObj<T>;
 
 export default {
   args: {
-    progress: "25",
+    progress: 25,
   },
   component: ProgressBar,
 } as ComponentMeta<T>;
@@ -15,11 +15,11 @@ export default {
 export const Default: Story = {};
 export const Half: Story = {
   args: {
-    progress: "50",
+    progress: 50,
   },
 };
 export const Subtle: Story = {
   args: {
-    progress: "48.5"
+    progress: 48.5,
   },
 };
