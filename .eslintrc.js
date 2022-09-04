@@ -50,6 +50,7 @@ const config = {
     "react/jsx-props-no-spreading": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
   },
   plugins: ["jsx-a11y"],
   parser: "@typescript-eslint/parser",

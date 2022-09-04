@@ -15,6 +15,7 @@ class Document extends NextDocument {
         <body>
           <ColorModeScript />
           <Main />
+          <div id="root" />
           <NextScript />
         </body>
       </Html>
