@@ -7,10 +7,9 @@ type Story = ComponentStoryObj<T>;
 
 export default {
   args: {
-    name: "test user",
     score: 50,
-    itemId: "test",
-    userId: "user",
+    itemId: "smart phone",
+    boardId: "test",
     bids: 100,
   },
   component: MatchCard,

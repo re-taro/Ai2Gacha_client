@@ -1,8 +1,8 @@
 import { chakra } from "@chakra-ui/react";
 import { NextPage } from "next";
 import Link from "next/link";
-import { Button } from "src/components/button";
-import { SvgWrapper } from "src/components/svg-wrapper";
+import { Button } from "../../../components/button";
+import { SvgWrapper } from "../../../components/svg-wrapper";
 
 const SubmitResult: NextPage = () => {
   return (

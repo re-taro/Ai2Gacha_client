@@ -4,14 +4,14 @@ import { Button } from "../button";
 import type { ItemCardProperties } from "./type/model";
 import type { FC } from "react";
 
-const ItemCard: FC<ItemCardProperties> = ({ type, title, imagePath, itemId, chooseItemId, bids, ...rest }) => {
+const ItemCard: FC<ItemCardProperties> = ({ type, title, imagePath, itemId, chooseItemId, boardId, bids, ...rest }) => {
   let link;
   if (type === "select") {
     link = `/bid/${itemId}`;
   } else if (type === "choose") {
     link = `/bid/${itemId}/${chooseItemId}`;
   } else if (type === "exhibit") {
-    link = `/trade/${itemId}`;
+    link = `/trade/${boardId}`;
   } else {
     link = `/submit/${itemId}`;
   }

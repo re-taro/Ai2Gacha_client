@@ -12,6 +12,8 @@ const GET_ITEMS = process.env.NEXT_PUBLIC_GETITEMS || "";
 const GET_MYITEMS = process.env.NEXT_PUBLIC_GETMYITEMS || "";
 const SEARCH_POST = process.env.NEXT_PUBLIC_SEARCH_POST || "";
 const APPLY_POST = process.env.NEXT_PUBLIC_APPLY_POST || "";
+const BOARD_POST = process.env.NEXT_PUBLIC_BOARD_POST || "";
+const SHOW_APPLIES = process.env.NEXT_PUBLIC_SHOW_APPLIES || "";
 
 const signup = async (id: string, password: string): Promise<void> => {
   await client.post(`/Signup?${SIGN_UP}`, {
@@ -108,4 +110,43 @@ const applyPost = async (id: string, board_id: string, apply_point: string): Pro
   });
 };
 
-export { signup, login, deposit, purchase, getBalance, getItems, getMyItems, searchPost, applyPost };
+const boardPost = async (
+  id: string,
+  wanted_item_kind: string,
+  like_theme: string,
+  post_point: string,
+): Promise<void> => {
+  await client.post(`/BoardPost?${BOARD_POST}`, {
+    id,
+    event_id: "event",
+    wanted_item_kind,
+    like_theme,
+    post_point,
+  });
+};
+
+const showApplies = (board_id: string): Promise<Array<Item>> => {
+  return new Promise<Array<Item>>((resolve, reject) => {
+    client
+      .post<{ items: Array<Item> }>(`/SearchApplies?${SHOW_APPLIES}`, {
+        event_id: "event",
+        board_id,
+      })
+      .then((res) => resolve(res.data.items))
+      .catch((err) => reject(err));
+  });
+};
+
+export {
+  signup,
+  login,
+  deposit,
+  purchase,
+  getBalance,
+  getItems,
+  getMyItems,
+  searchPost,
+  applyPost,
+  boardPost,
+  showApplies,
+};

@@ -1,9 +1,8 @@
 import { HTMLChakraProps } from "@chakra-ui/react";
 
 export type MatchCardProperties = HTMLChakraProps<"div"> & {
-  name: string;
   score: number;
+  boardId: string;
   itemId: string;
-  userId: string;
   isSelect: boolean;
 };

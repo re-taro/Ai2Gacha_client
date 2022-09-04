@@ -21,17 +21,33 @@ const SubmitIndex: NextPage = () => {
         商品出品
       </chakra.h1>
       <chakra.div marginTop="60px" display="flex" flexDirection="column" gap="30px">
-        {items.map((item: Item) => {
-          return (
-            <ItemCard
-              type="submit"
-              title={`${item.name}`}
-              imagePath={`${item.image_url}`}
-              itemId={`${item.id}`}
-              key={`${item.id}`}
-            />
-          );
-        })}
+        {items
+          .filter((item) => item.board_status !== "apply")
+          .map((item) => {
+            return (
+              // eslint-disable-next-line react/jsx-no-useless-fragment
+              <>
+                {item.board_status === "none" ? (
+                  <ItemCard
+                    type="submit"
+                    title={`${item.name}`}
+                    imagePath={`${item.image_url}`}
+                    itemId={`${item.id}`}
+                    key={`${item.id}`}
+                  />
+                ) : (
+                  <ItemCard
+                    type="exhibit"
+                    title={`${item.name}`}
+                    imagePath={`${item.image_url}`}
+                    boardId={`${item.board_id}`}
+                    bids={item.apply_number}
+                    key={`${item.id}`}
+                  />
+                )}
+              </>
+            );
+          })}
         <chakra.div textAlign="center" marginBottom="40px">
           <Link href="/" passHref>
             <Button as="a" isNegative border disable={false}>
