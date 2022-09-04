@@ -2,6 +2,8 @@ export type Item = {
   id: string;
   item_status: string;
   event_id: string;
+  name: string;
+  image_url: string;
   holder_user_id: string;
   item_kind: string;
   ticket_status: boolean;
