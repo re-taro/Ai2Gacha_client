@@ -14,11 +14,7 @@ jobs:
   run-chromatic-deployment:
     name: Deploy Storybook to chromatic
     runs-on: ubuntu-latest
-    needs: front-filter
     if: github.event.workflow_run.conclusion == 'success'
-    defaults:
-      run:
-        working-directory: ${{ env.workdir }}
     timeout-minutes: 7
     steps:
       - name: Checkout
