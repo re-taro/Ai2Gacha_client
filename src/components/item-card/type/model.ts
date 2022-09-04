@@ -1,12 +1,35 @@
 import { HTMLChakraProps } from "@chakra-ui/react";
 
-export type ItemCardProperties = HTMLChakraProps<"div"> & {
-  title: string;
-  imagePath: string;
-  itemId: string;
-  progress: number;
-  remaining: number;
-  bids: number;
-  isExhibit: boolean;
-  isPossession: boolean;
-};
+export type ItemCardProperties =
+  | (HTMLChakraProps<"div"> & {
+      type: "select";
+      title: string;
+      imagePath: string;
+      itemId: string;
+      chooseItemId?: never;
+      bids?: never;
+    })
+  | {
+      type: "choose";
+      title: string;
+      imagePath: string;
+      itemId: string;
+      chooseItemId: string;
+      bids?: never;
+    }
+  | {
+      type: "exhibit";
+      title: string;
+      imagePath: string;
+      itemId: string;
+      chooseItemId?: never;
+      bids: number;
+    }
+  | {
+      type: "submit";
+      title: string;
+      imagePath: string;
+      itemId: string;
+      chooseItemId?: never;
+      bids?: never;
+    };

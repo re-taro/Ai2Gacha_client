@@ -7,26 +7,29 @@ type Story = ComponentStoryObj<T>;
 
 export default {
   args: {
+    type: "select",
     title: "wallet",
     imagePath: "/_test/test.png",
     itemId: "test",
-    progress: 60,
-    remaining: 100,
-    isExhibit: false,
-    isPossession: false,
   },
   component: ItemCard,
 } as ComponentMeta<T>;
 
 export const Default: Story = {};
+export const Choose: Story = {
+  args: {
+    type: "choose",
+    chooseItemId: "wallet",
+  },
+};
 export const Exhibit: Story = {
   args: {
-    isExhibit: true,
+    type: "exhibit",
     bids: 100,
   },
 };
-export const Possession: Story = {
+export const Submit: Story = {
   args: {
-    isPossession: true,
+    type: "submit",
   },
 };
