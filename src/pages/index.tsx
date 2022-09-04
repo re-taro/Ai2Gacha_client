@@ -1,20 +1,34 @@
-import { chakra, HTMLChakraProps } from "@chakra-ui/react";
-import type { NextPage } from "next";
-import type { FC } from "react";
+import { chakra } from "@chakra-ui/react";
+import Link from "next/link";
+import { Button } from "src/components/button";
 
-const GradientText: FC<HTMLChakraProps<"span">> = (chakraProps) => (
-  <chakra.span
-    fontSize="6vw"
-    background="linear-gradient(90deg, #4d62d0, #d152c9 30%, #e6b357)"
-    backgroundClip="text"
-    {...chakraProps}
-  />
-);
+const Index = () => {
+  return (
+    <chakra.div
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      height="100vh"
+    >
+      <chakra.div
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        height="35vh"
+      >
+        <Link href="/purchase" passHref>
+          <Button as="a" isNegative={false} border={false} disable={false}>購入</Button>
+        </Link>
+        <Link href="/search" passHref>
+          <Button as="a" isNegative={false} border={false} disable={false}>検索</Button>
+        </Link>
+        <Link href="/submit" passHref>
+          <Button as="a" isNegative={false} border={false} disable={false}>出品</Button>
+        </Link>
+      </chakra.div>
+    </chakra.div>
+  )
+}
 
-const Index: NextPage = () => (
-  <chakra.div height="100vh" display="flex" justifyContent="center" alignItems="center">
-    <GradientText as="h2">Hello Chakra UI</GradientText>
-  </chakra.div>
-);
-
-export default Index;
+export default Index
