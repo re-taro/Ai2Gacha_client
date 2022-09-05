@@ -23,29 +23,33 @@ const TradeForm: NextPage = () => {
     })();
   }, [boardId, itemId]);
   return (
-    <chakra.div>
-      <chakra.h1 color="white" textAlign="center" fontSize="30px">
-        交換確認
-      </chakra.h1>
-      <MatchCard score={targetItem?.score as number} boardId="" itemId="" isSelect={false} />
-      <chakra.p>あげるもの</chakra.p>
-      <ItemCard type="tile" imagePath={myItem?.image_url as string} title={myItem?.name as string} />
-      <chakra.p>もらうもの</chakra.p>
-      <ItemCard type="tile" imagePath={targetItem?.image_url as string} title={targetItem?.name as string} />
-      <ThemeCard theme={myItem?.like_theme as string} isTag />
-      <chakra.textarea readOnly value={myItem?.apply_point} />
-      <Button isNegative border disable={false} onClick={() => router.back()}>
-        戻る
-      </Button>
-      <Button
-        isNegative={false}
-        border={false}
-        disable={false}
-        onClick={() => router.push(`/trade/${boardId}/${itemId}/success`)}
-      >
-        確定
-      </Button>
-    </chakra.div>
+    <chakra.section height="100vh" display="flex" justifyContent="center">
+      <chakra.div display="flex" flexDirection="column" alignItems="center" gap="1.875rem">
+        <chakra.h1 color="white" textAlign="center" fontSize="30px">
+          交換確認
+        </chakra.h1>
+        <MatchCard score={targetItem?.score as number} boardId="" itemId="" isSelect={false} />
+        <chakra.p>あげるもの</chakra.p>
+        <ItemCard type="tile" imagePath={myItem?.image_url as string} title={myItem?.name as string} />
+        <chakra.p>もらうもの</chakra.p>
+        <ItemCard type="tile" imagePath={targetItem?.image_url as string} title={targetItem?.name as string} />
+        <ThemeCard theme={myItem?.like_theme as string} isTag />
+        <chakra.textarea readOnly value={myItem?.apply_point} />
+        <chakra.div display="flex" w="100%" justifyContent="space-between">
+          <Button isNegative border disable={false} onClick={() => router.back()}>
+            戻る
+          </Button>
+          <Button
+            isNegative={false}
+            border={false}
+            disable={false}
+            onClick={() => router.push(`/trade/${boardId}/${itemId}/success`)}
+          >
+            確定
+          </Button>
+        </chakra.div>
+      </chakra.div>
+    </chakra.section>
   );
 };
 

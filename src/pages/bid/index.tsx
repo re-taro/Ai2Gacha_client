@@ -17,17 +17,19 @@ const Bid: NextPage = () => {
   }, []);
   return (
     <chakra.section height="100vh" display="flex" justifyContent="center">
-      <chakra.h1 color="white" fontSize="1.875rem">
-        差し出す商品
-      </chakra.h1>
-      {items.map((item) => (
-        <ItemCard type="select" title={item.name} imagePath={item.image_url} itemId={item.item_kind} key={item.id} />
-      ))}
-      <Link href="/" passHref>
-        <Button as="a" isNegative border disable={false}>
-          戻る
-        </Button>
-      </Link>
+      <chakra.div display="flex" flexDirection="column" alignItems="center" gap="1.875rem">
+        <chakra.h1 color="white" fontSize="1.875rem">
+          差し出す商品
+        </chakra.h1>
+        {items.map((item) => (
+          <ItemCard type="select" title={item.name} imagePath={item.image_url} itemId={item.item_kind} key={item.id} />
+        ))}
+        <Link href="/" passHref>
+          <Button as="a" isNegative border disable={false}>
+            戻る
+          </Button>
+        </Link>
+      </chakra.div>
     </chakra.section>
   );
 };

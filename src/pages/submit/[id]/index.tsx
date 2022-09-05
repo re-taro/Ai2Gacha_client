@@ -29,34 +29,39 @@ const SubmitForm: NextPage = () => {
     })();
   }, [id]);
   return (
-    <chakra.div height="100vh" display="flex" justifyContent="center">
-      <chakra.h1 color="white" fontSize="1.875rem">
-        出品確認
-      </chakra.h1>
-      <chakra.p color="white" fontSize="1.5rem">
-        あげるもの
-      </chakra.p>
-      <ItemCard type="tile" title={sendItem?.name as string} imagePath={sendItem?.image_url as string} />
-      <chakra.form onSubmit={handleSubmit(onSubmit)}>
-        <chakra.select {...register("wanted", { required: true })}>
-          {chooseItems.map((item) => (
-            <chakra.option value={item.id} key={item.id}>
-              {item.name}
+    <chakra.section height="100vh" display="flex" justifyContent="center">
+      <chakra.div display="flex" flexDirection="column" alignItems="center" gap="1.875rem">
+        <chakra.h1 color="white" fontSize="1.875rem">
+          出品確認
+        </chakra.h1>
+        <chakra.p color="white" fontSize="1.5rem">
+          あげるもの
+        </chakra.p>
+        <ItemCard type="tile" title={sendItem?.name as string} imagePath={sendItem?.image_url as string} />
+        <chakra.form display="flex" flexDirection="column" w="100%" gap="2.25rem" onSubmit={handleSubmit(onSubmit)}>
+          <chakra.select {...register("wanted", { required: true })}>
+            <chakra.option value="" disabled selected display="none">
+              募集するものを選んでください
             </chakra.option>
-          ))}
-        </chakra.select>
-        <chakra.input {...register("theme", { required: true })} type="text" placeholder="テーマを決めよう" />
-        <chakra.textarea {...register("point", { required: true })} />
-        <chakra.div display="flex">
-          <Button isNegative border disable={false} onClick={() => router.back()}>
-            戻る
-          </Button>
-          <Button isNegative={false} border={false} disable={false} type="submit">
-            出品
-          </Button>
-        </chakra.div>
-      </chakra.form>
-    </chakra.div>
+            {chooseItems.map((item) => (
+              <chakra.option value={item.id} key={item.id}>
+                {item.name}
+              </chakra.option>
+            ))}
+          </chakra.select>
+          <chakra.input {...register("theme", { required: true })} type="text" placeholder="テーマを決めよう" />
+          <chakra.textarea {...register("point", { required: true })} />
+          <chakra.div display="flex" w="100%" justifyContent="space-between">
+            <Button isNegative border disable={false} onClick={() => router.back()}>
+              戻る
+            </Button>
+            <Button isNegative={false} border={false} disable={false} type="submit">
+              出品
+            </Button>
+          </chakra.div>
+        </chakra.form>
+      </chakra.div>
+    </chakra.section>
   );
 };
 

@@ -16,18 +16,18 @@ const SubmitIndex: NextPage = () => {
     })();
   }, []);
   return (
-    <chakra.div>
-      <chakra.h1 color="white" textAlign="center" fontSize="30px">
-        商品出品
-      </chakra.h1>
-      <chakra.div marginTop="60px" display="flex" flexDirection="column" gap="30px">
+    <chakra.section height="100vh" display="flex" justifyContent="center">
+      <chakra.div display="flex" flexDirection="column" alignItems="center" gap="1.875rem">
+        <chakra.h1 color="white" textAlign="center" fontSize="30px">
+          商品出品
+        </chakra.h1>
         {items
           .filter((item) => item.board_status !== "apply")
           .map((item) => {
             return (
               // eslint-disable-next-line react/jsx-no-useless-fragment
               <>
-                {item.board_status === "none" ? (
+                {item.board_status == null ? (
                   <ItemCard
                     type="submit"
                     title={`${item.name}`}
@@ -56,7 +56,7 @@ const SubmitIndex: NextPage = () => {
           </Link>
         </chakra.div>
       </chakra.div>
-    </chakra.div>
+    </chakra.section>
   );
 };
 

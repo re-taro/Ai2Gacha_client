@@ -25,17 +25,19 @@ export const getServerSideProps: GetServerSideProps<{
 const MatchBoard: NextPage<Props> = ({ items, boardId }) => {
   const router = useRouter();
   return (
-    <chakra.div>
-      <chakra.h1 color="white" textAlign="center" fontSize="30px">
-        入札一覧
-      </chakra.h1>
-      {items.map((item) => (
-        <MatchCard score={item.score} boardId={boardId as string} itemId={item.id} isSelect key={item.id} />
-      ))}
-      <Button isNegative border disable={false} onClick={() => router.back()}>
-        戻る
-      </Button>
-    </chakra.div>
+    <chakra.section height="100vh" display="flex" justifyContent="center">
+      <chakra.div display="flex" flexDirection="column" alignItems="center" gap="1.875rem">
+        <chakra.h1 color="white" textAlign="center" fontSize="30px">
+          入札一覧
+        </chakra.h1>
+        {items.map((item) => (
+          <MatchCard score={item.score} boardId={boardId as string} itemId={item.id} isSelect key={item.id} />
+        ))}
+        <Button isNegative border disable={false} onClick={() => router.back()}>
+          戻る
+        </Button>
+      </chakra.div>
+    </chakra.section>
   );
 };
 

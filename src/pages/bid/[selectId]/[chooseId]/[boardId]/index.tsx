@@ -32,28 +32,30 @@ const ApplyForm: NextPage = () => {
   };
   return (
     <chakra.section height="100vh" display="flex" justifyContent="center">
-      <chakra.h1 color="white" fontSize="1.875rem">
-        入札申請
-      </chakra.h1>
-      <chakra.p color="white" fontSize="1.5rem">
-        受け取る商品
-      </chakra.p>
-      <ItemCard type="tile" title={item?.name as string} imagePath={item?.image_url as string} />
-      <chakra.p color="white" fontSize="1.5rem">
-        {item?.apply_number}
-      </chakra.p>
-      <ThemeCard theme={item?.like_theme as string} isTag />
-      <chakra.form onSubmit={handleSubmit(onSubmit)}>
-        <chakra.textarea {...register("point", { required: true })} />
-        <chakra.div display="flex">
-          <Button isNegative border disable={false} onClick={() => router.back()}>
-            戻る
-          </Button>
-          <Button isNegative={false} border={false} disable={false} type="submit">
-            確定
-          </Button>
-        </chakra.div>
-      </chakra.form>
+      <chakra.div display="flex" flexDirection="column" alignItems="center" gap="1.875rem">
+        <chakra.h1 color="white" fontSize="1.875rem">
+          入札申請
+        </chakra.h1>
+        <chakra.p color="white" fontSize="1.5rem">
+          受け取る商品
+        </chakra.p>
+        <ItemCard type="tile" title={item?.name as string} imagePath={item?.image_url as string} />
+        <chakra.p color="white" fontSize="1.5rem">
+          {`入札数: ${item?.apply_number}`}
+        </chakra.p>
+        <ThemeCard theme={item?.like_theme as string} isTag />
+        <chakra.form display="flex" flexDirection="column" w="100%" gap="2.25rem" onSubmit={handleSubmit(onSubmit)}>
+          <chakra.textarea {...register("point", { required: true })} />
+          <chakra.div display="flex" w="100%" justifyContent="space-between">
+            <Button isNegative border disable={false} onClick={() => router.back()}>
+              戻る
+            </Button>
+            <Button isNegative={false} border={false} disable={false} type="submit">
+              確定
+            </Button>
+          </chakra.div>
+        </chakra.form>
+      </chakra.div>
     </chakra.section>
   );
 };

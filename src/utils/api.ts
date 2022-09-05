@@ -82,7 +82,7 @@ const getMyItems = (): Promise<Array<Item>> => {
   const user_id = localStorage.getItem("userId");
   return new Promise<Array<Item>>((resolve, reject) => {
     client
-      .get<{ items: Array<Item> }>(`/GetMyItems?${GET_MYITEMS}?user_id=${user_id}&event_id=event`)
+      .get<{ items: Array<Item> }>(`/GetMyItems?${GET_MYITEMS}&user_id=${user_id}&event_id=event`)
       .then((res) => resolve(res.data.items))
       .catch((err) => reject(err));
   });
