@@ -29,12 +29,21 @@ const TradeForm: NextPage = () => {
           交換確認
         </chakra.h1>
         <MatchCard score={targetItem?.score as number} boardId="" itemId="" isSelect={false} />
-        <chakra.p>あげるもの</chakra.p>
+        <chakra.p color="white" fontSize="1.25rem">あげるもの</chakra.p>
         <ItemCard type="tile" imagePath={myItem?.image_url as string} title={myItem?.name as string} />
-        <chakra.p>もらうもの</chakra.p>
+        <chakra.p color="white" fontSize="1.25rem">もらうもの</chakra.p>
         <ItemCard type="tile" imagePath={targetItem?.image_url as string} title={targetItem?.name as string} />
         <ThemeCard theme={myItem?.like_theme as string} isTag />
-        <chakra.textarea readOnly value={myItem?.apply_point} />
+        <chakra.div
+          display="flex"
+          flexDirection="column"
+          px="1.5625rem"
+          py="2.8125rem"
+          bgColor="white"
+          borderRadius="1.5625rem"
+        >
+          <chakra.p>{myItem?.apply_point}</chakra.p>
+        </chakra.div>
         <chakra.div display="flex" w="100%" justifyContent="space-between">
           <Button isNegative border disable={false} onClick={() => router.back()}>
             戻る
