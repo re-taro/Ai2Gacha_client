@@ -24,24 +24,26 @@ export const getServerSideProps: GetServerSideProps<{
 
 const Choose: NextPage<Props> = ({ items, selectId }) => (
   <chakra.section height="100vh" display="flex" justifyContent="center">
-    <chakra.h1 color="white" fontSize="1.875rem">
-      受け取る商品
-    </chakra.h1>
-    {items.map((item) => (
-      <ItemCard
-        type="choose"
-        title={item.name}
-        imagePath={item.image_url}
-        itemId={selectId as string}
-        chooseItemId={item.id}
-        key={item.id}
-      />
-    ))}
-    <Link href="/bid" passHref>
-      <Button as="a" isNegative border disable={false}>
-        戻る
-      </Button>
-    </Link>
+    <chakra.div display="flex" flexDirection="column" alignItems="center" gap="1.875rem">
+      <chakra.h1 color="white" fontSize="1.875rem">
+        受け取る商品
+      </chakra.h1>
+      {items.map((item) => (
+        <ItemCard
+          type="choose"
+          title={item.name}
+          imagePath={item.image_url}
+          itemId={selectId as string}
+          chooseItemId={item.id}
+          key={item.id}
+        />
+      ))}
+      <Link href="/bid" passHref>
+        <Button as="a" isNegative border disable={false}>
+          戻る
+        </Button>
+      </Link>
+    </chakra.div>
   </chakra.section>
 );
 
