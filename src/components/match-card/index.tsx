@@ -18,7 +18,7 @@ const MatchCard: FC<MatchCardProperties> = ({ score, boardId, itemId, isSelect =
         マッチ度
       </chakra.p>
       <chakra.p fontSize="4.5rem" lineHeight={1} color={score >= 90 ? "primary" : "black"}>
-        {score}
+        {Math.floor(score)}
       </chakra.p>
       {isSelect ? (
         <Link href={`/trade/${boardId}/${itemId}`} passHref>
